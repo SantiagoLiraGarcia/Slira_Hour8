@@ -5,25 +5,25 @@ using UnityEngine;
 public class LightSwitch : MonoBehaviour
 {
     // Start is called before the first frame update
-
-    public void Start() => Light.enabled = false;
+    private Light Lightbulb;
+    public void Start()
+    {
+        Lightbulb = GetComponent<Light>();
+    }
 
     // Update is called once per frame
     void Update()
     {
         
-        bool held = Input.GetKey(KeyCode.L);
+       Input.GetKey(KeyCode.L);
        
 
-        if (held)
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            Light.enabled = true;
+            Lightbulb.enabled = !Lightbulb.enabled;
         }
       
-        else
-        {
-            Light.enabled = false;
-        }
+       
 
      
     }
